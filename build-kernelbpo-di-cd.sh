@@ -44,7 +44,7 @@ cd simple-cdd-tmp
 echo "" > profiles/default.preseed
 
 echo "backports=\"true\"" > profiles/${DEBIAN_TARGET_DIST}-bpokernel.conf
-echo "backports_packages=\"linux-image-amd64 ${BPO_KV}\"" >>  profiles/${DEBIAN_TARGET_DIST}-bpokernel.conf
+echo "backports_packages=\"linux-image-amd64 ${BPO_KP}\"" >>  profiles/${DEBIAN_TARGET_DIST}-bpokernel.conf
 echo "mirror_components=\"main contrib non-free\"" >>  profiles/${DEBIAN_TARGET_DIST}-bpokernel.conf
 echo "FORCE_FIRMWARE=1" >>  profiles/${DEBIAN_TARGET_DIST}-bpokernel.conf
 echo "extra_udeb_dist=${DEBIAN_TARGET_DIST}-backports" >>  profiles/${DEBIAN_TARGET_DIST}-bpokernel.conf
