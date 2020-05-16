@@ -1,7 +1,7 @@
 #! /bin/bash
 
 DEBIAN_TARGET_DIST=$(cat /etc/*-release | grep "VERSION_CODENAME=" | sed s/VERSION_CODENAME=//)
-PACKAGES_NEEDED="git simple-cdd"
+PACKAGES_NEEDED="git simple-cdd fakeroot"
 MUH_REGEX="[0-9]+\.[0-9]+\.[0-9]+\-[0-9]+\.bpo\.[0-9]"
 #going to make 2 wild assumptions, local system has backports and apt-cache will list the latest (bpo) version at the top
 BPO_KP=$(apt-cache show linux-image-amd64 | grep -m 1 Depends | cut -c 10-)
@@ -15,7 +15,9 @@ sudo apt install $PACKAGES_NEEDED -y
 cd /tmp
 
 #get the right debian installer source
-git clone https://salsa.debian.org/installer-team/debian-installer -b $DEBIAN_TARGET_DIST
+#git clone https://salsa.debian.org/installer-team/debian-installer -b $DEBIAN_TARGET_DIST
+apt-get source debian-installer
+ln -s debian-installer-*/ debian-installer
 
 #make the source list file for di
 echo "deb http://deb.debian.org/debian ${DEBIAN_TARGET_DIST} main/debian-installer" > debian-installer/build/sources.list.udeb.local
