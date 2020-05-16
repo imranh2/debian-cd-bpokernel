@@ -6,3 +6,6 @@ Need to install debian stable on a machine? Kernel too old for your hardware? Ba
 * Make sure you have sudo installed.
 * This script assumes that target dist == dist on your build machine
 * Also assumes you have backports enabled
+
+
+Automagic prebuilt images can be found under the [releases section](https://github.com/imranh2/debian-cd-bpokernel/releases)
