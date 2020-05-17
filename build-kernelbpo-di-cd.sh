@@ -56,8 +56,8 @@ cd simple-cdd-tmp
 echo "" > profiles/default.preseed
 
 #enable backports, contrib, and non-free
-echo "d-i apt-setup/services-select multiselect backports" > profiles/default.preseed
-echo "d-i apt-setup/services-select multiselect backports" > profiles/${DEBIAN_TARGET_DIST}-bpoknl.preseed
+echo "d-i apt-setup/services-select multiselect security, updates, backports" > profiles/default.preseed
+echo "d-i apt-setup/services-select multiselect security, updates, backports" > profiles/${DEBIAN_TARGET_DIST}-bpoknl.preseed
 
 echo "backports=true" > profiles/${DEBIAN_TARGET_DIST}-bpoknl.conf
 echo "backports_packages=\"linux-image-amd64 ${BPO_KP}\"" >>  profiles/${DEBIAN_TARGET_DIST}-bpoknl.conf
@@ -65,7 +65,7 @@ echo "FORCE_FIRMWARE=1" >>  profiles/${DEBIAN_TARGET_DIST}-bpoknl.conf
 echo "extra_udeb_dist=${DEBIAN_TARGET_DIST}-backports" >>  profiles/${DEBIAN_TARGET_DIST}-bpoknl.conf
 echo "DI_DIR=/tmp/debian-installer/build/dest/" >>  profiles/${DEBIAN_TARGET_DIST}-bpoknl.conf
 
-# to build with firmware then uncomment
+# to build with firmware then uncomment as needed
 #echo "mirror_components=\"main contrib non-free\"" >>  profiles/${DEBIAN_TARGET_DIST}-bpoknl.conf
 #echo "d-i apt-setup/contrib boolean true" >> profiles/default.preseed
 #echo "d-i apt-setup/non-free boolean true" >> profiles/default.preseed
