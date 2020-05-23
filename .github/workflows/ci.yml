@@ -23,6 +23,12 @@ jobs:
       - name: Run the build container
         run: docker run -v $(pwd)/tmp:/tmp debcdbpoknl-builder
 
+      - name: Create/Bump tag
+        uses: anothrNick/github-tag-action@1.17.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CUSTOM_TAG: latest-cd-bpokernel
+
       - name: Delete release and tag
         uses: dev-drprasad/delete-tag-and-release@v0.1.1
         with:
